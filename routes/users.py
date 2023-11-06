@@ -28,6 +28,8 @@ def create():
 @users.route("/update/<id>", methods=["POST", "GET"])
 def update(id):
     user = User.query.get(id)
+
+    # Si el método es POST, es porque se cargó el formulario con datos y se enviaron para la actualización
     if request.method == "POST":
         user.username = request.form["username"]
         user.password = request.form["password"]
@@ -36,6 +38,8 @@ def update(id):
         db.session.commit()
         return redirect(url_for("users.home"))
     else:
+        # Si el método es GET, es porque se ingresó a la URL para editar,
+        # por lo que tengo que retornar el template con los datos para que se carguen
         return render_template("update.html", user=user)
 
 
