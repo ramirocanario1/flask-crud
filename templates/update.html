@@ -1,0 +1,7 @@
+<form action="{{url_for('users.update', id=user.id)}}" method="post">
+  <input type="email" name="email" placeholder="Email" value="{{user.email}}" />
+  <input type="text" name="username" placeholder="Username" value="{{user.username}}" />
+  <input type="password" name="password" placeholder="Contraseña" value="{{user.password}}" />
+
+  <button>Enviar</button>
+</form>

@@ -1,0 +1,30 @@
+<form action="{{url_for('users.create')}}" method="post">
+  <input type="email" name="email" placeholder="Email" />
+  <input type="text" name="username" placeholder="Username" />
+  <input type="password" name="password" placeholder="Contraseña" />
+
+  <button>Enviar</button>
+</form>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td><a href="{{url_for('users.update', id=user.id)}}">Editar</a> <a href="{{url_for('users.delete', id=user.id)}}">Eliminar</a></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+  <ul></ul>
+</div>
